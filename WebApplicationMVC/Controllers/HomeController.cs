@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using WebApplicationMVC.Models;
 
 namespace WebApplicationMVC.Controllers
 {
@@ -10,21 +7,18 @@ namespace WebApplicationMVC.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var testUser = new UserModel { Id = "1", Name = "test0000" };
+            return View("~/Views/Home/Index.cshtml", testUser);
         }
-
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult CheckBag(UserModel user)
         {
-            ViewBag.Message = "Your application description page.";
+            if (ModelState.IsValid)
+            {
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            }
+            var testUser = new UserModel { Id = "2", Name = "test33333" };
+            return View("~/Views/Home/Index.cshtml", testUser);
         }
     }
 }
